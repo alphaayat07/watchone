@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Movie Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 8vw;
+      margin-bottom: 20px;
+      color: #0099ff;
+      text-align: center;
+    }
+
+    .movie {
+      background-color: #1c1c1c;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .movie h2 {
+      font-size: 6vw;
+      max-font-size: 24px;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .suggested {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .suggested h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #008cff;
+    }
+
+    .suggested-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .suggested-item {
+      display: flex;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .suggested-item:hover {
+      transform: scale(1.02);
+    }
+
+    .suggested-item img {
+      width: 40%;
+      object-fit: cover;
+    }
+
+    .suggested-info {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .suggested-info h4 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .movie h2 {
+        font-size: 24px;
+      }
+
+      .suggested-item {
+        flex-direction: row;
+      }
+
+      .suggested-item img {
+        width: 160px;
+        height: 90px;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .suggested-item {
+        flex-direction: column;
+      }
+
+      .suggested-item img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+        /* Navigation for Seasons */
+        .seasons {
+            margin-bottom: 20px;
+        }
+
+        .seasons a {
+            color: #dd1f1f;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            margin: 5px;
+            border: 2px solid #004cf1;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .seasons a:hover {
+            background-color: #0c42d4;
+            color: white;
+        }    /* Navigation for Seasons */
+     .seasons {
+            margin-bottom: 20px;
+        }
+
+        .seasons a {
+            color: #dd1f1f;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            margin: 5px;
+            border: 2px solid #004cf1;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .seasons a:hover {
+            background-color: #0c42d4;
+            color: white;
+        }
+  </style>
+</head>
+<body>
+  <h1>WatchOne</h1>
+
+    <!-- Seasons Navigation -->
+    <div class="seasons">
+      <a href="#">Season 1</a>
+      <a href="#">Season 2</a>
+      <a href="#">Season 3</a>
+      <a href="#">Season 4</a>
+      <a href="#">Season 5</a>
+      
+     
+      
+  </div>
+  <div class="movie">
+    <h2>Money Heist E3</h2>
+    <iframe src="https://drive.google.com/file/d/16hW3HWy7nrKEt7nt9HSA2H26cWAFlDED/preview" allowfullscreen></iframe>
+  </div>
+
+  <div class="suggested">
+    <h3>Suggested Episodes – Money Heist S1</h3>
+    <div class="suggested-list">
+   
+  
+      <a href="moneyheist player ep.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep2">
+        <div class="suggested-info">
+          <h4>Episode 1:Efectuar</h4>
+          <span> lo acordado</span>
+        </div>
+      </a>
+  
+      <a href="MHE2.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep3">
+        <div class="suggested-info">
+          <h4>Episode 2: Hostages</h4>
+          <span>Tension inside the Mint</span>
+        </div>
+      </a>
+  
+      <a href="mhe4.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep4">
+        <div class="suggested-info">
+          <h4>Episode 4: Emotions Run High</h4>
+          <span>Alliances shift</span>
+        </div>
+      </a>
+  
+      <a href="mhe5.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep5">
+        <div class="suggested-info">
+          <h4>Episode 5: Flashbacks</h4>
+          <span>Planning revealed</span>
+        </div>
+      </a>
+  
+      <a href="mhe6.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep6">
+        <div class="suggested-info">
+          <h4>Episode 6: Love & War</h4>
+          <span>Relationships tested</span>
+        </div>
+      </a>
+  
+      <a href="mhe7.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep7">
+        <div class="suggested-info">
+          <h4>Episode 7: Escape Plan</h4>
+          <span>The walls are closing in</span>
+        </div>
+      </a>
+  
+      <a href="mhe8.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep8">
+        <div class="suggested-info">
+          <h4>Episode 8: Break Point</h4>
+          <span>Everything changes</span>
+        </div>
+      </a>
+  
+      <a href="hme9.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep9">
+        <div class="suggested-info">
+          <h4>Episode 9: Professor's Past</h4>
+          <span>Secrets are exposed</span>
+        </div>
+      </a>
+  
+      <a href="mhe10.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep10">
+        <div class="suggested-info">
+          <h4>Episode 10: Final Move</h4>
+          <span>The game reaches its peak</span>
+        </div>
+      </a>
+      <a href="hme11.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep10">
+        <div class="suggested-info">
+          <h4>Episode 11: Final Move</h4>
+          <span>The Head of the Plan</span>
+        </div>
+      </a>
+
+      <a href="mhe12.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep10">
+        <div class="suggested-info">
+          <h4>Episode 12: Final Move</h4>
+          <span>Cuestión de eficacia</span>
+        </div>
+      </a>
+
+
+      <a href="mhe13.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep10">
+        <div class="suggested-info">
+          <h4>Episode 13: Final Move</h4>
+          <span>The game reaches its peak</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+  
+</body>
+</html>

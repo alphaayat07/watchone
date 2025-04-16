@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Movie Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 8vw;
+      margin-bottom: 20px;
+      color: #0099ff;
+      text-align: center;
+    }
+
+    .movie {
+      background-color: #1c1c1c;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .movie h2 {
+      font-size: 6vw;
+      max-font-size: 24px;
+      margin-bottom: 15px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .suggested {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .suggested h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #008cff;
+    }
+
+    .suggested-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .suggested-item {
+      display: flex;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .suggested-item:hover {
+      transform: scale(1.02);
+    }
+
+    .suggested-item img {
+      width: 40%;
+      object-fit: cover;
+    }
+
+    .suggested-info {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .suggested-info h4 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .movie h2 {
+        font-size: 24px;
+      }
+
+      .suggested-item {
+        flex-direction: row;
+      }
+
+      .suggested-item img {
+        width: 160px;
+        height: 90px;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .suggested-item {
+        flex-direction: column;
+      }
+
+      .suggested-item img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+        /* Navigation for Seasons */
+        .seasons {
+            margin-bottom: 20px;
+        }
+
+        .seasons a {
+            color: #dd1f1f;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            margin: 5px;
+            border: 2px solid #004cf1;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .seasons a:hover {
+            background-color: #0c42d4;
+            color: white;
+        }
+  </style>
+</head>
+<body>
+  <h1>WatchOne</h1>
+
+  </div>
+
+  <div class="movie">
+    <h2>Doctor Strange</h2>
+    <iframe src="https://drive.google.com/file/d/116S5-jSXwyZ2ph9fPL1eriBTGqedONgK/preview" allowfullscreen></iframe>
+  </div>
+
+  <div class="suggested">
+    <h3>Suggested Movies&Series</h3>
+    <div class="suggested-list">
+   
+  
+      <a href="MHE2.html" class="suggested-item">
+        <img src="https://www.unboundb2b.com/wp-content/uploads/2020/04/What-You-Learn-About-Marketing-From-Netflix-Series-Money-Heist-1568x994.webp" alt="Money Heist S1 Ep2">
+        <div class="suggested-info">
+          <h4>MONEY HEIST</h4>
+          <span>IMDB RATING 4.8★ 2017 ‧ Thriller ‧ 5 seasons
+
+            
+        </span>
+        </div>
+      </a>
+  
+      <a href="mhe3.html" class="suggested-item">
+        <img src="https://wallpapercave.com/wp/wp12235829.jpg" alt="Money Heist S1 Ep3">
+        <div class="suggested-info">
+          <h4>Avater</h4>
+          <span>IMDB RATING 7.9★  2009 ‧ Sci-fi/Action ‧ 2h 58m
+        </span>
+        </div>
+      </a>
+  
+      <a href="mhe4.html" class="suggested-item">
+        <img src="https://images.ctfassets.net/3sjsytt3tkv5/48dw0Wqg1t7RMqLrtodjqL/d72b35dae2516fa64803f4de2ab8e30f/Avengers-_Endgame_-_Header_Image.jpeg" alt="Money Heist S1 Ep4">
+        <div class="suggested-info">
+          <h4>Avengers: Endgame
+        
+            </h4>
+          <span>IMDB RATING 8.4★
+            U/A 2019 ‧ Action/Sci-fi ‧ 3h 1m
+            
+        </span>
+        </div>
+      </a>
+  
+      <a href="mhe5.html" class="suggested-item">
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQWPh6PeuTgtO_Zzmap6eXJrwBro7Rpz-VOBSqo_7j1-CW9rmEhD0fGArmbXSoWphgcr4ml" alt="Money Heist S1 Ep5">
+        <div class="suggested-info">
+          <h4>STRANGR THINGS</h4>
+        
+        <span>IMDB RATING 4.8★ 2016 ‧ Horror ‧ 4 seasons
+        </span>
+        </div>
+      </a>
+  
+      <a href="mhe6.html" class="suggested-item">
+        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQy5j8_gIBwIjsPp5_0E9pwUi0F0AHgo7J8FL151twWsASz2sKjMd4LEenNUuCl-Jtyet_L5A" alt="Money Heist S1 Ep6">
+        <div class="suggested-info">
+          <h4>Alice in Borderland
+            
+            
+            </h4>
+          <span>IMDB RATING 7.7★
+            
+2020 ‧ Thriller ‧ 2 seasons
+</span>
+        </div>
+      </a>
+  
+  
+</body>
+</html>

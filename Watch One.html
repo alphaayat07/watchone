@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchOne</title>
+
+    <style>
+    
+    body {
+    background: linear-gradient(to bottom, rgb(0, 0, 0), #1b1b1b);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #111;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-in-out;
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(14, 235, 216);
+    text-shadow: 0 0 10px rgb(0, 255, 234);
+}
+
+.search-bar {
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    background: #333;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.search-bar:focus {
+    transform: scale(1.1);
+}
+
+.sign-in {
+    background: rgb(4, 100, 138);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.sign-in:hover {
+    transform: scale(1.1);
+    background: rgb(10, 105, 105);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.menu-btn {
+    background: #222;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.menu-btn:hover {
+    background: rgb(30, 30, 31);
+    transform: scale(1.1);
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.category-btn {
+    background: #333;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.category-btn:hover {
+    background: rgb(51, 50, 50);
+    transform: scale(1.1);
+}
+
+.movie, .series .movie {
+    background: #222;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: popIn 1s ease-in-out;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(14, 235, 216);
+    text-shadow: 0 0 10px rgb(0, 255, 234);
+}
+
+.search-bar {
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    background: #333;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.search-bar:focus {
+    transform: scale(1.1);
+}
+
+.sign-in {
+    background: rgb(4, 100, 138);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.sign-in:hover {
+    transform: scale(1.1);
+    background: rgb(10, 105, 105);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+/* Animated Background */
+        @keyframes animatedBackground {
+            0% { background: linear-gradient(45deg, #000428, #004e92); }
+            25% { background: linear-gradient(45deg, #001f3f, #006494); }
+            50% { background: linear-gradient(45deg, #000428, #0084ff); }
+            75% { background: linear-gradient(45deg, #001f3f, #006494); }
+            100% { background: linear-gradient(45deg, #000428, #004e92); }
+        }
+        
+        body {
+            background-size: 300% 300%;
+            animation: animatedBackground 10s infinite alternate ease-in-out;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Movies & Series Grid */
+        .movies, .series {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        /* Movie Card - Glassmorphic Effect */
+        .movie {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+            border: 2px solid rgba(0, 170, 255, 0.6);
+        }
+        
+        .movie:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 30px rgba(0, 170, 255, 0.6);
+        }
+        
+        /* Movie Poster */
+        .movie img {
+            width: 240px;
+            height: 350px;
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+            filter: brightness(90%) contrast(120%);
+        }
+        
+        .movie img:hover {
+            transform: scale(1.1);
+            filter: brightness(100%) contrast(130%);
+        }
+        
+        /* Play Button - Neon Glow */
+        .play-btn {
+            background: linear-gradient(45deg, #00aaff, #0056d6);
+            color: white;
+            padding: 12px 25px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 20px rgba(0, 136, 255, 0.7);
+        }
+        
+        .play-btn:hover 
+            transform: scale(1.12);
+            background: linear-gradient(45deg, #0056d6, #00aaff);
+            box   
+    </style>
+    <script>
+    function searchMovies() {
+        let input = document.getElementById("searchInput").value.toLowerCase().trim();
+        let movies = document.querySelectorAll(".movie");
+        let found = false;
+
+        movies.forEach(movie => {
+            let title = movie.querySelector("h3").innerText.toLowerCase();
+            if (title.includes(input)) {
+                movie.style.display = "";
+                found = true;
+            } else {
+                movie.style.display = "none";
+            }
+        });
+
+        document.getElementById("noResults").style.display = found ? "none" : "block";
+    }
+</script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="logo">WatchOne</h1>
+        <input type="text" placeholder="Search movies & series..." class="search-bar" id="searchInput">
+        <button class="play-btn" onclick="window.location.href='sing up page.html'">Sing up</button>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const movies = document.querySelectorAll(".movie");
+
+    searchInput.addEventListener("input", function () {
+        const searchText = searchInput.value.toLowerCase();
+
+        movies.forEach(movie => {
+            const title = movie.getAttribute("data-title").toLowerCase();
+            if (title.includes(searchText)) {
+                movie.style.display = "block";
+            } else {
+                movie.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+
+
+    </nav>
+  
+    <nav>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuButtons = document.querySelectorAll(".menu-btn");
+    const categoryButtons = document.querySelectorAll(".category-btn");
+    
+    function handleButtonClick(buttons, event) {
+        buttons.forEach(btn => btn.classList.remove("active"));
+        event.target.classList.add("active");
+    }
+    
+    menuButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            handleButtonClick(menuButtons, event);
+            console.log("Menu selected:", event.target.textContent);
+        });
+    });
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            handleButtonClick(categoryButtons, event);
+            console.log("Category selected:", event.target.textContent);
+        });
+    });
+});
+</script>
+  </nav>
+
+    <div class="menu">
+        <button class="menu-btn">Home</button>
+        <button class="menu-btn">Movies</button>
+        <button class="menu-btn">Series</button>
+        <button class="menu-btn">myList</button>
+        <button class="menu-btn">Profile</button>
+    </div>
+    
+    <div class="categories">
+        <button class="category-btn">Action</button>
+        <button class="category-btn">Drama</button>
+        <button class="category-btn">Horror</button>
+        <button class="category-btn">Sci-Fi</button>
+        <button class="category-btn">Thriller</button>
+        
+    </div>
+    
+
+
+
+    <div class="content">
+      
+        <div class="movies">
+            <div class="movie" data-title="Game of Thrones">
+                <img src="https://m.media-amazon.com/images/I/71P+4DslKmL._AC_UF1000,1000_QL80_.jpg" alt="Game of Thrones">
+                <h3>Game of Thrones</h3>
+                   <h5> 2011 ‧ Drama ‧ 8 seasons</h5>
+                   <button class="play-btn" onclick="window.location.href='game of thrones.html'">▶ Play</button>
+            </div>
+            <div class="movie" data-title="money height">
+                <img src="https://resizing.flixster.com/ITt1FPrFePNR6FSqZrZK7BocG2U=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjEwMTMyOTMud2VicA==" alt="Money Heist">
+                <h3>Money Heist</h3>
+                <h5>2017 ‧ Thriller ‧ 5 seasons </h5>
+                <button class="play-btn" onclick="window.location.href='moneyheist player ep.html'">▶ Play</button>
+            </div>
+        </div>
+
+   
+        <div class="series">
+            <div class="movie" data-title="Alice in Borderland">
+                <img src="https://resizing.flixster.com/LVwKsZtPtzPe_-xiQLtIz_x4wfw=/fit-in/705x460/v2/https://resizing.flixster.com/lKCL0DL4PSd7X3KWyzAIDmk2Npw=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvUlRUVjc4MDcxMS53ZWJw" alt="Breaking Bad">
+                <h3>Alice in Borderland</h3>
+                <h5>2020 ‧ Thriller ‧ 2 seasonss</h5>
+                <button class="play-btn" onclick="window.location.href='alice in doberland.html'">▶ Play</button>
+            </div>
+            <div class="movie" data-title="Stranger Things">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-pdb7bVdmUHsu_U9oTBKqLJh68Y4NfSEzmHnOIDRVoBOhyvqbGhkOplNOx9r91QY9IvbE-6WedCGu3tg_FaQ9FUwkm6Mh9Zn9SQKLhSI" alt="Stranger Things">
+                <h3>Stranger Things</h3>
+                <h5>2016 ‧ Horror ‧ 4 seasons</h5>
+
+                
+<button class="play-btn" onclick="window.location.href='stranger things player.html'">▶ Play</button>
+
+        
+            </div>
+        </div>
+    </div>
+
+
+
+
+   
+    <div class="series">
+            <div class="movie" data-title="VIKINGS">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRldnzKpV-OjHLnWvEDB-SI_lVofRLFpCXAXA&s">
+                <h3>VIKINGS</h3>
+                <h5>
+2013 ‧ History ‧ 6 seasons</h5>
+<button class="play-btn" onclick="window.location.href='vikings'">▶ Play</button>
+            </div>
+            <div class="movie" data-title="sweet home">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRpjjNVFwYzkIacoeEMxFiUABKme9217zWstguLAYHftLwn8rWo_LsflCMBPEfQNbObXcATfw">
+                <h3>Sweet Home</h3>
+                <h5>2020 ‧ Horror ‧ 3 seasons
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='sweet home.html'">▶ Play</button>
+
+        
+            </div>
+        </div>
+    </div>
+  
+
+
+
+
+
+   
+    <div class="series">
+            <div class="movie" data-title="Breaking Bad">
+                <img src="https://myincensewaterfall.com/cdn/shop/files/S674f40c957604e9a8a477c50e62a9a889.webp?v=1705219898&width=1946">
+                <h3>Breaking Bad</h3>
+                <h5>
+2008 ‧ Drama ‧ 5 seasons
+</h5>
+                <button class="play-btn" data-video="videos/breaking-bad.mp4">▶ Play</button>
+            </div>
+            <div class="movie" data-title="Frome">
+                <img src="https://image.tmdb.org/t/p/original/bpdE9StxqOT1lvZ8Sglzy6OYG5H.jpg">
+                <h3>From</h3>
+                <h5>2022 ‧ Horror ‧ 3 seasons
+                </h5>
+
+                
+<button class="play-btn" onclick="window.location.href=''">▶ Play</button>
+
+        
+            </div>
+        </div>
+    </div>
+  
+
+    
+   
+    <div class="series">
+            <div class="movie" data-title="Squid game">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRn0PYLik6UfGNQml16phmBOcTlyPndTV-JUQZEqc_9YkMru3PyqcFXYBi0TqJjkxj2iln" alt="Breaking Bad">
+            
+                <h3>Squid game</h3>
+                <h5>2021 ‧ Thriller ‧ 2 seasons</h5>
+                <button class="play-btn" data-video="videos/breaking-bad.mp4">▶ Play</button>
+            </div>
+            <div class="movie" data-title="Peaky Bliners">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSM1RfnNxjkJjv6su_9EVi-AqVTvMyaiWergB9Vh_utvs1n6ZYTWygADBA1Xzwx0kxDfH5S" alt="Stranger Things">
+                <h3>Peaky Bliners</h3>
+                <h5>2013 ‧ Drama ‧ 6 seasons
+                </h5>
+
+                
+<button class="play-btn" onclick="window.location.href=''">▶ Play</button>
+
+        
+            </div>
+        </div>
+    </div>
+  
+
+    
+   
+    <div class="series">
+            <div class="movie" data-title="the Last Kingdom">
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaDFGCVa8HJDtEXXrRVuGOAC394t3qXrEsp-1SMDVCnHQE0KKrbGmOsc__xvHEtIDoGgzo1A" alt="Breaking Bad">
+                <h3>The Last Kingdom</h3>
+                <h5>2015 ‧ Drama ‧ 5 seasons</h5>
+                <button class="play-btn" data-video="videos/breaking-bad.mp4">▶ Play</button>
+            </div>
+            <div class="movie" data-title="the witcher">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQrpQa4kPsu6vyXAGfOOHSuscIGwdQuxyOs0Lp-EndlqkhFdcxNPg0kt-lws9e49GAqx2wxRg" alt="Stranger Things">
+                <h3>The Witcher</h3>
+                <h5>2019 ‧ Drama ‧ 3 seasons</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="You">
+                <img src="https://i.ebayimg.com/images/g/LRYAAOSw9zdcdcwS/s-l1200.jpg" alt="Stranger Things">
+                <h3>YOU</h3>
+                <h5>2018 ‧ Thriller ‧ 4 seasons</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Loki">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmJU0NvE9WrV6h08DZ3EOedYcKePiTf2cJbX01ZdZEst2A89x0UxlZ7H6lu8UDBGxetoQpyg" alt="Stranger Things">
+                <h3>Loki</h3>
+                <h5>2021 ‧ Action ‧ 2 seasons
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="lupin">
+                <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p19204904_b_v13_al.jpg" alt="Stranger Things">
+                <h3>LUPIN</h3>
+                <h5>2021 ‧ Thriller ‧ 3 seasons
+                
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Berlin">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Berlin_%28Spanish_TV_series%29.jpg" alt="Stranger Things">
+                <h3>Berlin</h3>
+                <h5>2023 ‧ Thriller ‧ 1 season  /h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Interstellar">
+                <img src="https://m.media-amazon.com/images/I/71LSIb-HrwL._AC_UF1000,1000_QL80_.jpg" alt="Stranger Things">
+                <h3>Interstellar</h3>
+                <h5>2014 ‧ Sci-fi/Adventure ‧ 2h 49m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Avatar">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTwJPOxfRiaHwXkICnf6LKMHIPWJPGLx8wht-wZH-qFs0OXXUCBvOeCQTs79z7Bx9odsdsB" alt="Stranger Things">
+                <h3>Avatar</h3>
+                <h5> 2009 ‧ Sci-fi/Action ‧ 2h 58m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Pathaan">
+                <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Pathaan_film_poster.jpg" alt="Stranger Things">
+                <h3>Pathaan</h3>
+                <h5> 2023 ‧ Action/Thriller ‧ 2h 26m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Tiger 3">
+                <img src="https://upload.wikimedia.org/wikipedia/en/f/f8/Tiger_3_poster.jpg" alt="Stranger Things">
+                <h3>Tiger 3</h3>
+                <h5> 2023 ‧ Action/Thriller ‧ 2h 36m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+
+            <div class="movie" data-title="Farzi">
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRJqmxXW7x7Ixhrmr035vUATaYJUu4PglD5rzrUyY_jbTp4GEugtCwzCyWhsRvotyh9XvmA" alt="Stranger Things">
+                <h3>Farzi
+
+</h3>
+                <h5>
+2023 ‧ Thriller ‧ 1 season
+</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Hereditary">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa5_h4OL6FHuIvss52J1INVt_KXz0dwwJ7U2uaJY0cE36VdLK6Jqy2HpS-qb5YPoGUFgyEug" alt="Stranger Things">
+                <h3>Hereditary
+</h3>
+                <h5>2018 ‧ Horror/Mystery ‧ 2h 7m
+</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+
+            <div class="movie" data-title="the boys">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRYxan0RVMaKr1JxY2uZlvhPqhqU-KIGXbYpU_LW1HG3-f9-RpYQlOPok90hExi-L3cvRuE" alt="Stranger Things">
+                <h3>The Boys</h3>
+                <h5>2019 ‧ Drama ‧ 4 seasons
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="spider-man">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQlVhsONH57akBZYZyExGw-n3r4vfXNbffgL4dCXSXDJV9WRYLGqQlRBK2a4cZFMEInwQ9b" alt="Stranger Things">
+                <h3>spider-man</h3>
+                <h5>2002 ‧ Action/Sci-fi ‧ 2h 7m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+
+            <div class="movie" data-title="Wednesday">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzKDOhOKsrp9aPcrtjdZbFkFtltZZfB_Nsq3oSmJVlSz7DFD7dNxsUl15UkYZv0maX96pv" alt="Stranger Things">
+                <h3>Wednesday</h3>
+                <h5>2022 ‧ Horror ‧ 1 season</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="the 8 show">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/The_8_Show_poster.png/250px-The_8_Show_poster.png" alt="Stranger Things">
+                <h3>The 8 show </h3>
+                <h5>2024 ‧ Thriller ‧ 1 season
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Black Mirror">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuehP2oimC52zxXcw2S2P1DDJ2TJcBhcqgjYd0NBz54rEAY8KC3krqy8R_HbRSi0bmZsxQ" alt="Stranger Things">
+                <h3>Black Mirror</h3>
+                <h5>2011 ‧ Sci-fi ‧ 6 seasons
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Moana">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTCStGlbSfgnn58-5uq4yHTAgEG4VK5moQUtt6XETV9CG9DtZYm" alt="Stranger Things">
+                <h3>MOANA</h3>
+                <h5> 2016 ‧ Family/Adventure ‧ 1h 47m for kids</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+
+            <div class="movie" data-title="Lion King">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTv0REMOInqkdMG-8AbTQIVTv9bmlN6O6CM0yh12hG_uQ_U66Q2k0aQVj2ajafAYWOrWUJt3A" alt="Stranger Things">
+                <h3>Lion King</h3>
+                <h5>2019 ‧ Family/Adventure ‧ 1h 58m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="spider-man2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAiXPhchG3ath8M7kpi2cV92dMVICO8VoomOp3JMYCLt5npMSST4H1AJHXYwhGyTEXIMXIiA" alt="Stranger Things">
+                <h3>spider-man2</h3>
+                <h5> 2004 ‧ Action/Sci-fi ‧ 2h 7m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+
+            <div class="movie" data-title="one day">
+                <img src="https://m.media-amazon.com/images/S/pv-target-images/56335488d8fdbc781446aa361b015fe77e1d094140c3ec3236a30f9f562c6f9c.jpg" alt="Stranger Things">
+                <h3>One Day</h3>
+                <h5>2011 ‧ Romance/Comedy ‧ 1h 47m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="the Conjuring">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQeqClg9WkzGhd4gNWXa-gJGeZS_2HkNNclIzPhy66CKBnamMAY0TcbQZmWTuD4otPUjmtlFA" alt="Stranger Things">
+                <h3>The Conjuring</h3>
+                <h5>2013 ‧ Horror/Mystery ‧ 1h 52m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Venom">
+                <img src="https://upload.wikimedia.org/wikipedia/en/1/10/Venom_%282018_film%29_poster.png" alt="Stranger Things">
+                <h3>Venom</h3>
+                <h5>2018 ‧ Action/Sci-fi ‧ 1h 52m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="spider-man3">
+                <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Spider-Man_3%2C_International_Poster.jpg" alt="Stranger Things">
+                <h3>spider-man3</h3>
+                <h5> 2007 ‧ Action/Sci-fi ‧ 2h 19m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Thor">
+                <img src="https://play-lh.googleusercontent.com/uq3wtAhKvwPeXdaZ-_aK2glfp6WzxoeUVce5jNOK8QElZtdwfguPS4aYuAfkpm_-f7KF_w" alt="Stranger Things">
+                <h3>Thor</h3>
+                <h5> 2011 ‧ Action/Fantasy ‧ 1h 54m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Super man">
+                <img src="https://m.media-amazon.com/images/M/MV5BZjFhZmU5NzUtZTg4Zi00ZjRjLWI0YmQtODk2MzI4YjNhYTdkXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg" alt="Stranger Things">
+                <h3>Super man</h3>
+                <h5>2025 ‧ Action/Sci-fi
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Iron-man">
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/02/Iron_Man_%282008_film%29_poster.jpg" alt="Stranger Things">
+                <h3>Iron-man</h3>
+                <h5>2008 ‧ Action/Sci-fi ‧ 2h 6m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Venom Let There Be Carnage poster">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Venom_Let_There_Be_Carnage_poster.jpg" alt="Stranger Things">
+                <h3>Venom: Let There Be Carnage
+</h3>
+                <h5>2021 ‧ Action/Sci-fi ‧ 1h 37m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Thor the Dark World">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK9lZdD68FwY7rgq7vI2gOuJhVW-j5KrCOcJF_QGCxnFodojlIJsylhksVMw038UQagfh3Ou6g0L0jajqUW21ib-BHA8MseFVxE9R32Q" alt="Stranger Things">
+                <h3>Thor: The Dark World
+</h3>
+                <h5> U/A 2013 ‧ 1h 52m
+</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Zootopia">
+                <img src="data:image/jpeg;base64,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" alt="Stranger Things">
+                <h3>Zootopia
+                </h3>
+                <h5>2016 ‧ Family/Comedy ‧ 1h 48m for kids</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div><div class="movie" data-title="iron man2">
+                <img src="https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg" alt="Stranger Things">
+                <h3>Iron man2</h3>
+                <h5>2010 ‧ Action/Sci-fi ‧ 2h 4m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Captain America: Brave New World
+
+">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSik_zkeedQ4dkpiSK0zg6g0MA7dgTfj2BF2Yp8jo51PjKmow1o5lagx4cP-mou6qpecQQc" alt="Stranger Things">
+                <h3>Captain America: Brave New World
+
+</h3>
+                <h5> U/A 2025 ‧ Action/Sci-fi ‧ 2 hours
+</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Naruto">
+                <img src="https://resizing.flixster.com/_SjFgL1NzLuF-Z-5KJRDMxyeWw8=/fit-in/1152x864/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9161972_b_v9_aa.jpg" alt="Stranger Things">
+                <h3>Naruto</h3>
+                <h5>2002 ‧ Adventure ‧ 10 seasons/Hindi-English
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Doctor Strange">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR6k_zTMaHk1NRK7ysN7NnaCr526YEFyddJyhXmGQTjQNswogwziMYc6Any985hYSkrSErnMAqNR_FKVwN2sEIVeeLTjVRML9I_-JwzBKM" alt="Stranger Things">
+                <h3>Doctor Strange
+                </h3>
+                <h5>U/A 2016 ‧ Fantasy/Action ‧ 1h 55m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='movie.html'">▶ Play</button>
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Avatar: The Way of Water">
+                <img src="https://lumiere-a.akamaihd.net/v1/images/p_disneyplusoriginals_avatar_thewayofwater_poster_rebra_fa08636d.jpeg" alt="Stranger Things">
+                <h3>Avatar: The Way of Water</h3>
+                <h5>A 2022 ‧ Sci-fi/Action ‧ 3h 12m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="iron man3">
+                <img src="https://upload.wikimedia.org/wikipedia/en/1/19/Iron_Man_3_poster.jpg" alt="Stranger Things">
+                <h3>iron man3</h3>
+                <h5> 2013 ‧ Action/Sci-fi ‧ 2h 10m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Naruto: Shippuden">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQLxStja2783Lz8sxOn_RN3sGt02cK6TQC8eGynmfoc3jgsc-K_EeIPwkf5efdVrxir96H8dw" alt="Stranger Things">
+                <h3>Naruto: Shippuden</h3>
+                <h5>2007 ‧ Adventure ‧ 21 seasons /HINDI/ENGLIISH
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="JOKER">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRkNeYGwWeQEwOoPhxW93QIeNUWnLmEvMPwTw9AlDBGN4uXjIAcOEwz2z2yZL8BpXHp3ZYyjQ" alt="Stranger Things">
+                <h3>JOKER</h3>
+                <h5>2019 ‧ Thriller/Crime ‧ 2h 2m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="John Wick">
+                
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/98/John_Wick_TeaserPoster.jpg" alt="Stranger Things">
+                <h3>John Wick
+
+
+</h3>
+                <h5>
+ 2014 ‧ Action/Thriller ‧ 1h 41m
+</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Ant man">
+                <img src="https://m.media-amazon.com/images/I/71LogL-jF3L._AC_UF1000,1000_QL80_.jpg">
+                <h3>Ant-man</h3>
+                <h5> 2015 ‧ Action/Sci-fi ‧ 1h 57m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+
+            <div class="movie" data-title="Friends">
+                <img src="https://m.media-amazon.com/images/M/MV5BOTU2YmM5ZjctOGVlMC00YTczLTljM2MtYjhlNGI5YWMyZjFkXkEyXkFqcGc@._V1_QL75_UY281_CR1,0,190,281_.jpg" alt="Stranger Things">
+                <h3>Friends</h3>
+                <h5>1994 ‧ Sitcom ‧ 10 seasons
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Vemon">
+                <img src="https://upload.wikimedia.org/wikipedia/en/a/a3/Venom_The_Last_Dance_Poster.jpg" alt="Stranger Things">
+                <h3>Venom</h3>
+                <h5>2024 ‧ Action/Sci-fi ‧ 1h 49m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="John Wick: Chapter 2
+">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwFFKnD44ImIUbGK4FKDG9UvdisHiXPzpnP2yb2SqwJ1YGtMPnK7hJrKD76pSFnLF76cbZ" alt="Stranger Things">
+                <h3>John Wick: Chapter 2
+
+</h3>
+                <h5>2017 ‧ Action/Thriller ‧ 2h 2m
+</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Annabelle
+
+">
+                <img src="https://m.media-amazon.com/images/I/81R4L0yVEoL._AC_UF894,1000_QL80_.jpg" alt="Stranger Things">
+                <h3>Annabelle
+
+</h3>
+                <h5> 2014 ‧ Horror/Mystery ‧ 1h 39m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Avengers: Infinity War">
+                <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg" alt="Stranger Things">
+                <h3>TAvengers Infinity War</h3>
+                <h5> 2018 ‧ Action/Sci-fi ‧ 2h 29m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div> 
+
+            
+            <div class="movie" data-title="Spider Man Homecoming">
+                <img src="https://m.media-amazon.com/images/M/MV5BODY2MTAzOTQ4M15BMl5BanBnXkFtZTgwNzg5MTE0MjI@._V1_QL75_UX190_CR0,0,190,281_.jpg" alt="Stranger Things">
+                <h3>Spider-Man: Homecoming</h3>
+                <h5> 2017 ‧ Action/Sci-fi ‧ 2h 13m
+                </h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="House of the Dragon
+">
+                <img src="https://m.media-amazon.com/images/M/MV5BM2QzMGVkNjUtN2Y4Yi00ODMwLTg3YzktYzUxYjJlNjFjNDY1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Stranger Things">
+                <h3>House of the Dragon</h3>
+                <h5>
+2022 ‧ Drama ‧ 2 seasons
+</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div> 
+
+            
+            <div class="movie" data-title="Captain America The Winter Soldier">
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfP_GN63NrHEjZ4unvJbGE7neVs5W_6SlUmYHscaXhUSHMkce3eYBL8eiDbwRt4e0oCv0n" alt="Stranger Things">
+                <h3>Captain America: The Winter Soldier</h3>
+                <h5>A 2014 ‧ Action/Adventure ‧ 2h 16m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div>
+
+
+            <div class="movie" data-title="Ant-Man and the Wasp">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTZEICE5Fp_1MCZq0qK501n8ErP10rJHZB0teV2XdX8THwITz_e5yMxxUzXP1SDKlmdAXjt" alt="Stranger Things">
+                <h3>Ant-Man and the Wasp</h3>
+                <h5> 2018 ‧ Action/Adventure ‧ 1h 58m</h5>
+
+                
+                <button class="play-btn" onclick="window.location.href='the witcher'">▶ Play</button>
+
+        
+            </div> 
+            
+            
+        
+            </div>
+        </div>
+    </div>
+  
+    
+</body>
+</html>
