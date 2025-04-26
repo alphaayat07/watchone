@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0f0f0f;
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 8vw;
+    margin-bottom: 20px;
+    color: #0099ff;
+    text-align: center;
+}
+
+.movie {
+    background-color: #1c1c1c;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 720px;
+    margin-bottom: 30px;
+}
+
+.movie h2 {
+    font-size: 6vw;
+    max-font-size: 24px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+
+iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 10px;
+}
+
+.suggested {
+    width: 100%;
+    max-width: 720px;
+}
+
+.suggested h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #008cff;
+}
+
+.suggested-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.suggested-item {
+    display: flex;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.suggested-item:hover {
+    transform: scale(1.02);
+}
+
+.suggested-item img {
+    width: 40%;
+    object-fit: cover;
+}
+
+.suggested-info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.suggested-info h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+
+/* Seasons navigation */
+
+.seasons {
+    margin-bottom: 20px;
+}
+
+.seasons a {
+    color: #dd1f1f;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    margin: 5px;
+    border: 2px solid #004cf1;
+    border-radius: 8px;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.seasons a:hover {
+    background-color: #0c42d4;
+    color: white;
+}
+
+
+/* Responsive tweaks */
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 36px;
+    }
+    .movie h2 {
+        font-size: 24px;
+    }
+    .suggested-item {
+        flex-direction: row;
+    }
+    .suggested-item img {
+        width: 160px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 599px) {
+    .suggested-item {
+        flex-direction: column;
+    }
+    .suggested-item img {
+        width: 100%;
+        height: auto;
+    }
+}
